@@ -61,7 +61,7 @@ public class PrimsAlgorithm {
 		
 		
 		while(!priorityQueue.isEmpty()){
-			System.out.println("Element in Queuw "+priorityQueue);
+			System.out.println("Element in Queue "+priorityQueue);
 			int u = priorityQueue.remove();
 			List<Integer> adjecentlist = findAdjacentNode(u, graph);
 			Iterator<Integer> it = adjecentlist.iterator();
