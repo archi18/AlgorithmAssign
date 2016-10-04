@@ -23,11 +23,13 @@ public class PrimsAlgorithm {
 
 		for(int i=0; i<VERTEX_SIZE; i++)
 			V[i]=i;
-		
 		graph=generategraph(graph);
-		getMSTPrims(V, graph, 0);
+		final int R = 0;  //starting point
+		getMSTPrims(V, graph, R);
 		
 		for(int i=0; i <VERTEX_SIZE; i++){
+			if(i==R)
+				continue;
 			System.out.println(pi[i]+" --> "+i);
 		}
 		
@@ -61,7 +63,7 @@ public class PrimsAlgorithm {
 		
 		
 		while(!priorityQueue.isEmpty()){
-			System.out.println("Element in Queue "+priorityQueue);
+			System.out.println("Element in min pririty Queue "+priorityQueue);
 			int u = priorityQueue.remove();
 			List<Integer> adjecentlist = findAdjacentNode(u, graph);
 			Iterator<Integer> it = adjecentlist.iterator();
@@ -88,7 +90,7 @@ public class PrimsAlgorithm {
 			if (i == j)
 				continue;
 			else if (graph[i][j] == 1) {
-			//	System.out.println("Adjesent node to " + i + " :: " + j);
+			//	System.out.println("Adjacent node to " + i + " :: " + j);
 				list.add(new Integer(j));
 			}
 		}
